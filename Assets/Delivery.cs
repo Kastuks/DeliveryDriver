@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Delivery : MonoBehaviour
 {
-    [SerializeField] Color32 hasPackageColor = new(42, 195, 41, 255);
-    [SerializeField] Color32 hasNoPackageColor = new(255, 255, 255, 255);
+    Color32 hasNoPackageColor = new(42, 195, 41, 255);
+    Color32 hasPackageColor = new(255, 255, 255, 255);
     bool packagePickedUp = false;
     [SerializeField] float destroyDelay = 0f;
 
@@ -44,6 +44,7 @@ public class Delivery : MonoBehaviour
         Debug.Log("Package picked up");
         spriteRenderer.color = hasPackageColor;
         packagePickedUp = true;
+        
         Destroy(other.gameObject, destroyDelay);
     }
     void DeliverPackage(Collider2D other) {
